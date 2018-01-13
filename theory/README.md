@@ -6,25 +6,42 @@ Find regexes that match the following.
 
 * Regex that matches:
 
-    antelope
-    antelopes
+    - antelope
+    - antelopes
+
+    ### Answer
+    ```regex
+      /antelope[s]?/g
+    ```
 
 * Regex that matches:
 
-    goat
-    moat
+    - goat
+    - moat
 
-  but not 
+    but not
 
-    boat
+    - boat
+
+    ### Answer
+    ```regex
+      /[gm]oat/g
+    ```
 
 * Regex that matches dates in YYYY-MM-DD format. This does not need to
   verify the date is correct.
 
-  2000-10-12
-  1999-1-20
-  1999-01-20
-  812-2-10
+    - 2000-10-12
+    - 1999-1-20
+    - 1999-01-20
+    - 812-2-10
+
+    ### Answer
+    This matches any year, months 1/01 - 12, and dates 1/01 - 31.
+
+    ```regex
+      /\d{1,4}-(1[0-2]|0[1-9]|[1-9])-((0[0-9]|[1-2][0-9]|3[01]|[1-9])([\s\r\n]|$))/g
+    ```
 
 ## State Machines
 
@@ -36,11 +53,19 @@ Find regexes that match the following.
       ab*c+d?[ef]
 
   Remember the ε transition can be used to move between states without
-  consuming input. 
+  consuming input.
+
+  ### Answer
+
+  ![Regex Machine](../RegexMachine.png?raw=true "Regex Machine")
 
 * A lion can be sleeping, eating, hunting, or preening. Draw a state
   machine diagram for the lion and label the transition events that
   cause state transitions.
+
+  ### Answer
+
+  ![Lion Machine](../LionMachine.png?raw=true "Lion Machine")
 
 * The VT-100 terminal (console) outputs text to the screen as it
   receives it over the wire. One exception is that when it receives an
@@ -60,8 +85,16 @@ Find regexes that match the following.
     bold sequence need only accept `1` (and is a trivial regex). (ESC is
     a single character which can be represented with `\e` in the regex.)
 
+  ### Answer
+
+    ![asciiCommands](./asciiCommands.js)
+
   * Draw a state machine diagram for a VT-100 that can consume regular
     character sequences as well as the two above ESC sequences.
+
+  ### Answer
+
+  ![VT-100 Machine](../VT-100Machine.png?raw=true "VT-100 Machine")
 
 > If you're curious, [here are all the VT-100 escape
 > sequences](http://ascii-table.com/ansi-escape-sequences-vt-100.php).
