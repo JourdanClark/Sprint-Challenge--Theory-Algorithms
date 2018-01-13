@@ -87,7 +87,7 @@ Find regexes that match the following.
 
   ### Answer
 
-    ![asciiCommands](./asciiCommands.js)
+    [asciiCommands](./asciiCommands.js)
 
   * Draw a state machine diagram for a VT-100 that can consume regular
     character sequences as well as the two above ESC sequences.
